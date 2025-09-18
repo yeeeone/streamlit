@@ -94,9 +94,9 @@ if data is not None:
 
         col1, col2, col3, col4 = st.columns(4)
         col1.metric("Total Videos", f"{total_videos:,}")
-        col2.metric("Average Length (sec)", f"{avg_length:.2f}")
-        col3.metric("Max Length (sec)", f"{max_length:.2f}")
-        col4.metric("Min Length (sec)", f"{min_length:.2f}")
+        col2.metric("Average Length (sec)", f"{avg_length/60:.2f}")
+        col3.metric("Max Length (sec)", f"{max_length/60:.2f}")
+        col4.metric("Min Length (sec)", f"{min_length/60:.2f}")
     else:
         st.warning("Required columns for KPI calculation not found")
 
