@@ -93,7 +93,7 @@ if data is not None:
         max_length = data['최대_길이_초'].max() if '최대_길이_초' in data.columns else 0
         min_length = data['최소_길이_초'].min() if '최소_길이_초' in data.columns else 0
 
-        col1, col2, col3, col4, col5 = st.columns(4)
+        col1, col2, col3, col4, col5 = st.columns(5)
         col1.metric("Total Videos", f"{total_videos:,}")
         col2.metric("Toltal Length (hour)", f"{total_length/(60*60):,}")
         col3.metric("Average Length (min)", f"{avg_length/60:.2f}")
