@@ -88,15 +88,17 @@ if data is not None:
 
     if '총_영상_개수' in data.columns:
         total_videos = int(data['총_영상_개수'].sum())
+        total_length = int(data['총_영상_시간_초'].sum())
         avg_length = data['평균_길이_초'].mean() if '평균_길이_초' in data.columns else 0
         max_length = data['최대_길이_초'].max() if '최대_길이_초' in data.columns else 0
         min_length = data['최소_길이_초'].min() if '최소_길이_초' in data.columns else 0
 
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2, col3, col4, col5 = st.columns(4)
         col1.metric("Total Videos", f"{total_videos:,}")
-        col2.metric("Average Length (min)", f"{avg_length/60:.2f}")
-        col3.metric("Max Length (min)", f"{max_length/60:.2f}")
-        col4.metric("Min Length (min)", f"{min_length/60:.2f}")
+        col2.metric("Toltal Length (hour)", f"{total_length/(60*60):,}")
+        col3.metric("Average Length (min)", f"{avg_length/60:.2f}")
+        col4.metric("Max Length (min)", f"{max_length/60:.2f}")
+        col5.metric("Min Length (min)", f"{min_length/60:.2f}")
     else:
         st.warning("Required columns for KPI calculation not found")
 
